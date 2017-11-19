@@ -1,0 +1,114 @@
+.promo-block {
+	background-color: @bg-darkblue;
+
+	&__container {
+		.container-fluid();
+		padding-top: 28px;
+		text-align: center;
+		color: @font-white;
+	}
+
+	&__heading {
+		.visually-hidden();
+	}
+
+	&__button {
+		display: block;
+		margin-bottom: 32px;
+		padding: 16px;
+		font-size: 18px;
+		line-height: 18px;
+		font-weight: bold;
+		color: @font-white;
+		text-decoration: none;
+		background-color: transparent;
+		border: 3px solid @bg-white;
+		border-radius: 28px;
+
+		&:hover {
+			background-color: @bg-white;
+			color: @font-pink;
+		}
+
+		&:active {
+			color: @font-lightpink;
+		}
+	}
+
+	&__apple-link,
+	&__android-link,
+	&__windows-link {
+		display: inline-block;
+		width: 50px;
+		height: 58px;
+		margin-right: 30px;
+		font-size: 0;
+	}
+
+	& a:last-of-type {
+		margin-right: 0;
+	}
+
+	&__apple-link {
+		background: url("../img/complete/logo-apple.svg") center no-repeat;
+	}
+
+	&__android-link {
+		background: url("../img/complete/logo-android.svg") center no-repeat;
+	}
+
+	&__windows-link {
+		background: url("../img/complete/logo-microsoft.svg") center no-repeat;
+	}
+
+	&__note {
+		margin: 0;
+		padding: 25px 15px 30px;
+		font-size: 14px;
+		line-height: 24px;
+		font-weight: 300;
+	}
+}
+
+@media @tablet-widths {
+	.promo-block {
+		margin-top: -520px;
+		min-height: 520px;
+		background-color: transparent;
+
+		&__wrapper {
+			width: 50%;
+		}
+
+		&__heading {
+			.visually-shown();
+
+			padding: 0 45px 35px 45px;
+
+			font-size: 40px;
+			line-height: 45px;
+			font-weight: 300;
+		}
+	}
+}
+
+@media @desktop-widths {
+	.promo-block {
+		margin-top: -600px;
+		min-height: 600px;
+
+		&__wrapper {
+			width: 35%;
+		}
+
+		&__heading {
+			font-size: 50px;
+			line-height: 70px;
+		}
+
+		&__note {
+			font-size: 18px;
+			line-height: 24px;
+		}
+	}
+}

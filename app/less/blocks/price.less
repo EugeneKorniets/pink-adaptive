@@ -1,0 +1,124 @@
+.price {
+	width: 100%;
+	text-align: center;
+	background-color: @bg-lightgrey;
+	background-image: url("../img/complete/bg-triangle-white.svg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+
+	&__container {
+		display: flex;
+    flex-direction: column;
+    align-items: center;
+		padding-top: 90px;
+		padding-bottom: 90px;
+	}
+
+	&__list {
+		width: 840px;
+		box-sizing: border-box;
+		transition: .5s;
+	}
+
+	&__value {
+		padding: 12px 0;
+		color: @font-white;
+		font-size: 16px;
+		line-height: 30px;
+		text-transform: uppercase;
+		background-color: @bg-darkblue;
+		border: 1px solid @bg-lightgrey;
+
+		&--empty {
+			border-color: transparent;
+			background-color: transparent;
+		}
+
+		& b {
+			display: block;
+			font-weight: normal;
+		}
+
+		&--note {
+			display: none;
+		}
+	}
+
+	&__field {
+		padding: 15px;
+		color: @font-darkblue;
+		font-size: 14px;
+		line-height: 30px;
+		text-align: left;
+		text-transform: uppercase;
+		background-color: @bg-white;
+		border: 1px solid @bg-lightgrey;
+
+		&--yes {
+			background-image: url("../img/complete/icon-yes.svg");
+			background-repeat: no-repeat;
+			background-size: 31px;
+			background-position: 95% center;
+		}
+
+		&--no {
+			background-image: url("../img/complete/icon-no.svg");
+			background-repeat: no-repeat;
+			background-size: 27px;
+			background-position: 95% center;
+		}
+	}
+}
+
+@media @tablet-widths {
+	.price {
+
+		&__container {
+			.container-fluid();
+			padding-top: 90px;
+		}
+
+		&__list {
+			position: static;
+			width: 100%;
+		}
+
+		&__value {
+			width: 25%;
+
+			&--note {
+				display: table-cell;
+			}
+		}
+
+		&__field {
+			text-transform: none;
+
+			&--yes {
+				font-size: 0;
+				background-image: url("../img/complete/icon-yes.svg");
+				background-repeat: no-repeat;
+				background-size: 31px;
+				background-position: center;
+			}
+
+			&--no {
+				font-size: 0;
+				background-image: url("../img/complete/icon-no.svg");
+				background-repeat: no-repeat;
+				background-size: 27px;
+				background-position: center;
+			}
+		}
+	}
+}
+
+@media @desktop-widths {
+	.price {
+
+		&__container {
+			padding-top: 150px;
+		}
+	}
+}

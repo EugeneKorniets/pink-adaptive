@@ -1,0 +1,41 @@
+.effects {
+	.visually-hidden();
+}
+
+@media @tablet-widths {
+	.effects {
+		.visually-shown();
+
+		&__container {
+			.container-fluid();
+			padding: 100px 0 90px 0;
+			background-image: url("../img/complete/icon-timer.svg");
+			background-repeat: no-repeat;
+			background-size: 240px 280px;
+			background-position: left center;
+		}
+
+		&__wrapper {
+			width: 50%;
+			margin-left: auto;
+		}
+
+		&__heading {
+			margin-right: 170px;
+			font-size: 22px;
+			line-height: 24px;
+			font-weight: bold;
+		}
+
+		&__link {
+			color: @font-pink;
+		}
+	}	
+}
+
+@media @desktop-widths {
+	.effects {
+		background-color: @bg-lightgrey;
+	}
+	
+}
