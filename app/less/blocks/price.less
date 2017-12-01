@@ -1,11 +1,9 @@
 .price {
-	width: 100%;
 	text-align: center;
 	background-color: @bg-lightgrey;
 	background-image: url("../img/bg-triangle-white.svg");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	overflow: hidden;
 
 	&__container {
 		display: flex;
@@ -13,15 +11,21 @@
     align-items: center;
 		padding-top: 90px;
 		padding-bottom: 90px;
+		overflow: hidden;
+	}
+
+	&__control {
+		.visually-hidden();
 	}
 
 	&__list {
 		width: 840px;
 		box-sizing: border-box;
-		transition: .5s;
+		transition: 0.5s;
 	}
 
 	&__value {
+		position: relative;
 		padding: 12px 0;
 		color: @font-white;
 		font-size: 16px;
@@ -42,6 +46,23 @@
 
 		&--note {
 			display: none;
+		}
+
+		&--hit {
+			background-image: url('../img/bg-hit.svg');
+			background-repeat: no-repeat;
+			background-position: top left;
+		}
+
+		&--hit::before {
+			content: "Хит";
+			position: absolute;
+			top: 12px;
+			left: 9px;
+			font-size: 16px;
+			line-height: 28px;
+			text-transform: uppercase;
+      transform: rotate(-45deg);
 		}
 	}
 
@@ -69,7 +90,43 @@
 			background-position: 95% center;
 		}
 	}
+
+	&__controls {
+		margin-top: 15px;
+
+		& label {
+			display: inline-block;
+			vertical-align: top;
+			width: 8px;
+			height: 8px;
+			margin: 0 8px;
+			background-color: grey;
+			border: 2px solid @bg-lightgrey;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	}
 }
+
+#price-control-1:checked ~ .price__controls label[for="price-control-1"],
+#price-control-2:checked ~ .price__controls label[for="price-control-2"],
+#price-control-3:checked ~ .price__controls label[for="price-control-3"] {
+	background-color: transparent;
+	border-color: @bg-darkblue;
+}
+
+#price-control-1:checked ~ .price__list {
+	transform: translateX(280px);
+}
+
+#price-control-2:checked ~ .price__list {
+	transform: translateX(0);
+}
+
+#price-control-3:checked ~ .price__list {
+	transform: translateX(-280px);
+}
+
 
 @media @tablet-widths {
 	.price {
@@ -104,6 +161,10 @@
 				font-size: 0;
 				background-position: center;
 			}
+		}
+
+		&__controls {
+			display: none;
 		}
 	}
 }

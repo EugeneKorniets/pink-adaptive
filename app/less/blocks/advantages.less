@@ -84,20 +84,41 @@
 
 		&__item:nth-child(1) {
 			background-image: url("../img/iphone-screen-1-desktop@1x.png");
+			background-size: 292px auto;
 			background-repeat: no-repeat;
 			background-position: center top;
+		}
+
+		@media @retina {
+			&__item:nth-child(1) {
+				background-image: url("../img/iphone-screen-1-desktop@2x.png");
+			}
 		}
 
 		&__item:nth-child(2) {
 			background-image: url("../img/iphone-screen-2-desktop@1x.png");
+			background-size: 292px auto;
 			background-repeat: no-repeat;
 			background-position: center top;
 		}
 
+		@media @retina {
+			&__item:nth-child(2) {
+				background-image: url("../img/iphone-screen-2-desktop@2x.png");
+			}
+		}
+
 		&__item:nth-child(3) {
 			background-image: url("../img/iphone-screen-3-desktop@1x.png");
+			background-size: 292px auto;
 			background-repeat: no-repeat;
 			background-position: center top;
+		}
+
+		@media @retina {
+			&__item:nth-child(3) {
+				background-image: url("../img/iphone-screen-3-desktop@2x.png");
+			}
 		}
 
 		&__heading {

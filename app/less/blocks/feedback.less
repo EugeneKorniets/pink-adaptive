@@ -2,14 +2,36 @@
 
 	&__container {
 		.container-fluid();
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
 		padding-top: 30px;
-		padding-bottom: 115px;
+		padding-bottom: 30px;
 		text-align: center;
+		overflow: hidden;
+	}
+
+	&__control {
+		.visually-hidden();
+	}
+
+	&__prev,
+	&__next {
+		display: none;
+	}
+
+	&__list {
+		display: flex;
+		width: 1500px;
+		justify-content: space-around;
+		transition: 0.8s;
 	}
 
 	&__item {
 		display: flex;
 		flex-direction: column;
+		flex-basis: 280px;
 	}
 
 	&__content {
@@ -33,10 +55,55 @@
 	&__about-author {
 		.visually-hidden();
 	}
+
+	&__controls {
+		margin-top: 20px;
+
+		& label {
+			display: inline-block;
+			vertical-align: top;
+			width: 8px;
+			height: 8px;
+			margin: 0 8px;
+			border: 2px solid #fff;
+			background-color: grey;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+	}
+}
+
+#feedback-control-1:checked ~ .feedback__controls label[for=feedback-control-1],
+#feedback-control-2:checked ~ .feedback__controls label[for=feedback-control-2],
+#feedback-control-3:checked ~ .feedback__controls label[for=feedback-control-3] {
+	width: 8px;
+	height: 8px;
+	border: 2px solid @bg-darkblue;
+	background-color: transparent;
+}
+
+#feedback-control-1:checked ~ .feedback__list {
+	transform: translateX(500px);
+}
+
+#feedback-control-2:checked ~ .feedback__list {
+	transform: translateX(0);
+}
+
+#feedback-control-3:checked ~ .feedback__list {
+	transform: translateX(-500px);
 }
 
 @media @tablet-widths {
 	.feedback {
+
+		&__list {
+			width: 2400px;
+		}
+
+		&__item {
+			flex-basis: 620px;
+		}
 		
 		&__content {
 			order: 1;
@@ -52,6 +119,18 @@
 			color: @font-darkblue;
 			order: 3;
 		}
+	}
+
+	#feedback-control-1:checked ~ .feedback__list {
+		transform: translateX(800px);
+	}
+
+	#feedback-control-2:checked ~ .feedback__list {
+		transform: translateX(0);
+	}
+
+	#feedback-control-3:checked ~ .feedback__list {
+		transform: translateX(-800px);
 	}
 }
 
@@ -77,33 +156,13 @@
 			}
 		}
 
-		&__item {
-			position: relative;
+		&__list {
+			width: 3600px;
 			padding: 0 60px;
+		}
 
-			&::before {
-				content: "";
-				position: absolute;
-				top: 60px;
-				left: 0;
-				width: 22px;
-				height: 42px;
-				background-image: url("../img/icon-review-arrow-left.svg");
-				background-repeat: no-repeat;
-				cursor: pointer;
-			}
-
-			&::after {
-				content: "";
-				position: absolute;
-				top: 60px;
-				right: 0;
-				width: 22px;
-				height: 42px;
-				background-image: url("../img/icon-review-arrow-right.svg");
-				background-repeat: no-repeat;
-				cursor: pointer;
-			}
+		&__item {
+			flex-basis: 700px;
 		}
 
 		&__content {
@@ -124,6 +183,44 @@
 			line-height: 18px;
 		}
 
-		
+		&__prev {
+			display: block;
+			position: absolute;
+			top: center;
+			left: 0;
+			width: 22px;
+			height: 42px;
+			background-image: url("../img/icon-review-arrow-left.svg");
+			background-repeat: no-repeat;
+			cursor: pointer;
+		}
+
+		&__next {
+			display: block;
+			position: absolute;
+			top: center;
+			right: 0;
+			width: 22px;
+			height: 42px;
+			background-image: url("../img/icon-review-arrow-right.svg");
+			background-repeat: no-repeat;
+			cursor: pointer;
+		}
+
+		&__controls {
+			display: none;
+		}
+	}
+
+	#feedback-control-1:checked ~ .feedback__list {
+		transform: translateX(1200px);
+	}
+
+	#feedback-control-2:checked ~ .feedback__list {
+		transform: translateX(0);
+	}
+
+	#feedback-control-3:checked ~ .feedback__list {
+		transform: translateX(-1200px);
 	}
 }

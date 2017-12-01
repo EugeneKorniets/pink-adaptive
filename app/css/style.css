@@ -887,16 +887,19 @@ img {
   }
   .advantages__item:nth-child(1) {
     background-image: url("../img/iphone-screen-1-desktop@1x.png");
+    background-size: 292px auto;
     background-repeat: no-repeat;
     background-position: center top;
   }
   .advantages__item:nth-child(2) {
     background-image: url("../img/iphone-screen-2-desktop@1x.png");
+    background-size: 292px auto;
     background-repeat: no-repeat;
     background-position: center top;
   }
   .advantages__item:nth-child(3) {
     background-image: url("../img/iphone-screen-3-desktop@1x.png");
+    background-size: 292px auto;
     background-repeat: no-repeat;
     background-position: center top;
   }
@@ -904,6 +907,21 @@ img {
     font-size: 25px;
     line-height: 30px;
     font-weight: bold;
+  }
+}
+@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .advantages__item:nth-child(1) {
+    background-image: url("../img/iphone-screen-1-desktop@2x.png");
+  }
+}
+@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .advantages__item:nth-child(2) {
+    background-image: url("../img/iphone-screen-2-desktop@2x.png");
+  }
+}
+@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .advantages__item:nth-child(3) {
+    background-image: url("../img/iphone-screen-3-desktop@2x.png");
   }
 }
 .effects {
@@ -964,9 +982,14 @@ img {
   width: 87.5%;
   max-width: 610px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
   padding-top: 30px;
-  padding-bottom: 115px;
+  padding-bottom: 30px;
   text-align: center;
+  overflow: hidden;
 }
 @media (min-width: 700px) {
   .feedback__container {
@@ -975,9 +998,30 @@ img {
     margin: 0 auto;
   }
 }
+.feedback__control {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+.feedback__prev,
+.feedback__next {
+  display: none;
+}
+.feedback__list {
+  display: flex;
+  width: 1500px;
+  justify-content: space-around;
+  transition: 0.8s;
+}
 .feedback__item {
   display: flex;
   flex-direction: column;
+  flex-basis: 280px;
 }
 .feedback__content {
   margin: 0;
@@ -1005,7 +1049,44 @@ img {
   border: 0;
   clip: rect(0 0 0 0);
 }
+.feedback__controls {
+  margin-top: 20px;
+}
+.feedback__controls label {
+  display: inline-block;
+  vertical-align: top;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  border: 2px solid #fff;
+  background-color: grey;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#feedback-control-1:checked ~ .feedback__controls label[for=feedback-control-1],
+#feedback-control-2:checked ~ .feedback__controls label[for=feedback-control-2],
+#feedback-control-3:checked ~ .feedback__controls label[for=feedback-control-3] {
+  width: 8px;
+  height: 8px;
+  border: 2px solid #283645;
+  background-color: transparent;
+}
+#feedback-control-1:checked ~ .feedback__list {
+  transform: translateX(500px);
+}
+#feedback-control-2:checked ~ .feedback__list {
+  transform: translateX(0);
+}
+#feedback-control-3:checked ~ .feedback__list {
+  transform: translateX(-500px);
+}
 @media (min-width: 700px) {
+  .feedback__list {
+    width: 2400px;
+  }
+  .feedback__item {
+    flex-basis: 620px;
+  }
   .feedback__content {
     order: 1;
   }
@@ -1021,6 +1102,15 @@ img {
     font-size: 11px;
     color: #283645;
     order: 3;
+  }
+  #feedback-control-1:checked ~ .feedback__list {
+    transform: translateX(800px);
+  }
+  #feedback-control-2:checked ~ .feedback__list {
+    transform: translateX(0);
+  }
+  #feedback-control-3:checked ~ .feedback__list {
+    transform: translateX(-800px);
   }
 }
 @media (min-width: 1200px) {
@@ -1040,31 +1130,12 @@ img {
     background-image: url("../img/icon-quotes.svg");
     background-repeat: no-repeat;
   }
-  .feedback__item {
-    position: relative;
+  .feedback__list {
+    width: 3600px;
     padding: 0 60px;
   }
-  .feedback__item::before {
-    content: "";
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 22px;
-    height: 42px;
-    background-image: url("../img/icon-review-arrow-left.svg");
-    background-repeat: no-repeat;
-    cursor: pointer;
-  }
-  .feedback__item::after {
-    content: "";
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 22px;
-    height: 42px;
-    background-image: url("../img/icon-review-arrow-right.svg");
-    background-repeat: no-repeat;
-    cursor: pointer;
+  .feedback__item {
+    flex-basis: 700px;
   }
   .feedback__content {
     padding: 0 30px;
@@ -1081,15 +1152,47 @@ img {
     font-size: 16px;
     line-height: 18px;
   }
+  .feedback__prev {
+    display: block;
+    position: absolute;
+    top: center;
+    left: 0;
+    width: 22px;
+    height: 42px;
+    background-image: url("../img/icon-review-arrow-left.svg");
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .feedback__next {
+    display: block;
+    position: absolute;
+    top: center;
+    right: 0;
+    width: 22px;
+    height: 42px;
+    background-image: url("../img/icon-review-arrow-right.svg");
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  .feedback__controls {
+    display: none;
+  }
+  #feedback-control-1:checked ~ .feedback__list {
+    transform: translateX(1200px);
+  }
+  #feedback-control-2:checked ~ .feedback__list {
+    transform: translateX(0);
+  }
+  #feedback-control-3:checked ~ .feedback__list {
+    transform: translateX(-1200px);
+  }
 }
 .price {
-  width: 100%;
   text-align: center;
   background-color: #f2f2f2;
   background-image: url("../img/bg-triangle-white.svg");
   background-repeat: no-repeat;
   background-size: 100%;
-  overflow: hidden;
 }
 .price__container {
   display: flex;
@@ -1097,13 +1200,25 @@ img {
   align-items: center;
   padding-top: 90px;
   padding-bottom: 90px;
+  overflow: hidden;
+}
+.price__control {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
 }
 .price__list {
   width: 840px;
   box-sizing: border-box;
-  transition: .5s;
+  transition: 0.5s;
 }
 .price__value {
+  position: relative;
   padding: 12px 0;
   color: #fff;
   font-size: 16px;
@@ -1122,6 +1237,21 @@ img {
 }
 .price__value--note {
   display: none;
+}
+.price__value--hit {
+  background-image: url('../img/bg-hit.svg');
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.price__value--hit::before {
+  content: "Хит";
+  position: absolute;
+  top: 12px;
+  left: 9px;
+  font-size: 16px;
+  line-height: 28px;
+  text-transform: uppercase;
+  transform: rotate(-45deg);
 }
 .price__field {
   padding: 15px;
@@ -1145,6 +1275,35 @@ img {
   background-size: 27px;
   background-position: 95% center;
 }
+.price__controls {
+  margin-top: 15px;
+}
+.price__controls label {
+  display: inline-block;
+  vertical-align: top;
+  width: 8px;
+  height: 8px;
+  margin: 0 8px;
+  background-color: grey;
+  border: 2px solid #f2f2f2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#price-control-1:checked ~ .price__controls label[for="price-control-1"],
+#price-control-2:checked ~ .price__controls label[for="price-control-2"],
+#price-control-3:checked ~ .price__controls label[for="price-control-3"] {
+  background-color: transparent;
+  border-color: #283645;
+}
+#price-control-1:checked ~ .price__list {
+  transform: translateX(280px);
+}
+#price-control-2:checked ~ .price__list {
+  transform: translateX(0);
+}
+#price-control-3:checked ~ .price__list {
+  transform: translateX(-280px);
+}
 @media (min-width: 700px) {
   .price__container {
     width: 87.5%;
@@ -1167,17 +1326,14 @@ img {
   }
   .price__field--yes {
     font-size: 0;
-    /* background-image: url("../img/icon-yes.svg");
-				background-repeat: no-repeat;
-				background-size: 31px; */
     background-position: center;
   }
   .price__field--no {
     font-size: 0;
-    /* background-image: url("../img/icon-no.svg");
-				background-repeat: no-repeat;
-				background-size: 27px; */
     background-position: center;
+  }
+  .price__controls {
+    display: none;
   }
 }
 @media (min-width: 700px) and (min-width: 700px) {

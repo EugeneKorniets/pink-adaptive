@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Приложение Pink</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -44,7 +44,7 @@
 				<a class="promo-block__apple-link" href="#">Apple</a>
 				<a class="promo-block__android-link" href="#">Android</a>
 				<a class="promo-block__windows-link" href="#">Windows Phone</a>
-				<p class="promo-block__note">Доступно для iPhone, iPad, Android, Windows Phone, OS X, Windows 8</p>
+				<p class="promo-block__note">Доступно для iPhone, iPad, Android, Windows Phone, OS X, Windows Phone</p>
 			</div>
 		</div>
 	</section>
@@ -88,16 +88,50 @@
 
 		<aside class="feedback">
 			<div class="feedback__container">
-				<div class="feedback__item">
-					<p class="feedback__content">"Это приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии!"</p>
-					<p class="feedback__author">Николай Петров</p>
-					<p class="feedback__about-author">25 лет, водитель трамвая</p>
+				<input class="feedback__control" type="radio" id="feedback-control-1" name="fdb-toggle" checked>
+				<input class="feedback__control" type="radio" id="feedback-control-2" name="fdb-toggle">
+				<input class="feedback__control" type="radio" id="feedback-control-3" name="fdb-toggle">
+
+				<div class="feedback__list">
+					
+					<div class="feedback__item">
+						<p class="feedback__content">"Это приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии!"</p>
+						<p class="feedback__author">Николай Петров</p>
+						<p class="feedback__about-author">25 лет, космонавт в "Space X"</p>
+					</div>
+
+					<div class="feedback__item">
+						<p class="feedback__content">"Это невероятно крутое приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии! Скоро у нас свадьба!"</p>
+						<p class="feedback__author">Иван Иванов</p>
+						<p class="feedback__about-author">28 лет, пилот НЛО в NASA</p>
+					</div>
+
+					<div class="feedback__item">
+						<p class="feedback__content">"Здесь есть все для того чтобы скрасить серые будни повседневной рутины!"</p>
+						<p class="feedback__author">Сергей Васильев</p>
+						<p class="feedback__about-author">35 лет, глава Пенсионного фонда</p>
+					</div>
+					
+				</div>
+
+				<span class="feedback__prev"></span>
+				<span class="feedback__next"></span>
+
+				<div class="feedback__controls">
+					<label for="feedback-control-1"></label>
+					<label for="feedback-control-2"></label>
+					<label for="feedback-control-3"></label>
 				</div>
 			</div>
 		</aside>
 
 		<div class="price">
 			<div class="price__container">
+
+				<input class="price__control" type="radio" id="price-control-1" name="prc-toggle">
+				<input class="price__control" type="radio" id="price-control-2" name="prc-toggle" checked>
+				<input class="price__control" type="radio" id="price-control-3" name="prc-toggle">
+
 				<table class="price__list">
 					<thead>
 						<tr>
@@ -126,6 +160,12 @@
 						<td class="price__field price__field--yes">Комментарии</td>
 					</tr>
 				</table>
+
+				<div class="price__controls">
+					<label for="price-control-1"></label>
+					<label for="price-control-2"></label>
+					<label for="price-control-3"></label>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -165,7 +205,7 @@
 		</div>
 	</footer>
 
-	<script src="js/script.js"></script>
+	<script async src="js/script.js"></script>
 </body>
 
 </html>
