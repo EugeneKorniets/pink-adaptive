@@ -1,29 +1,26 @@
 .page-footer {
-	.visually-hidden();
-}
 
-@media @tablet-widths {
-	.page-footer {
-		.visually-shown();
+	&__container {
+		.container-fluid();
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-		&__container {
-			.container-fluid();
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
+	&__logo {
+		width: 148px;
+		height: 40px;
+		padding: 40px 0;
+	}
 
-		&__logo {
-			width: 148px;
-			height: 40px;
-			padding: 36px 20px 51px 0;
-		}
+	&__social {
 
-		&__social a {
+		& a {
 			display: inline-block;
 			width: 50px;
 			height: 50px;
 			margin: 6px;
+			padding: 10px;
 			font-size: 0;
 			border: 2px solid @bg-lightgrey;
 			border-radius: 50%;
@@ -36,44 +33,78 @@
 				border-color: @bg-lightgrey;
 				opacity: 0.3;
 			}
-		}
 
-		&__twitter {
-			background-image: url("../img/icon-twitter.svg");
-			background-repeat: no-repeat;
-			background-position: center;
+			& svg {
+				width: 20px;
+				height: 20px;
+				margin: 15px;
+			}
 		}
+	}
 
-		&__facebook {
-			background-image: url("../img/icon-facebook.svg");
-			background-repeat: no-repeat;
-			background-position: center;
-		}
+	&__copyright {
+		margin: 20px 0;
+		text-align: center;
 
-		&__youtube {
-			background-image: url("../img/icon-youtube.svg");
-			background-repeat: no-repeat;
-			background-position: center;
-		}
-
-		&__copyright p,
-		&__copyright img {
-			display: inline-block;
-			vertical-align: bottom;
+		& a {
+			display: block;
 			margin: 0;
-			padding: 10px;
-		}
-
-		&__copyright p {
-			font-size: 18px;
-			line-height: 24px;
+			padding: 10px 5px;
+			font-size: 16px;
+			line-height: 20px;
 			color: @font-darkblue;
+
+			&:hover {
+				color: @font-pink;
+			}
 		}
 
-		&__copyright img {
+		& svg {
+			display: inline-block;
+			vertical-align: top;
 			width: 27px;
 			height: 34px;
-			padding: 0;
+			padding: 5px;
+
+			&:hover {
+				fill: @bg-pink;
+			}
+		}
+	}
+
+	&__paragraph {
+		display: block;
+		margin: 0;
+		padding: 5px;
+		font-size: 16px;
+		line-height: 20px;
+		color: @font-darkblue;
+
+		&--inline {
+			display: inline-block;
+			vertical-align: top;
+			margin: 10px;
+		}
+	}
+}
+
+@media @tablet-widths {
+	.page-footer {
+
+		&__container {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		&__logo {
+			width: 148px;
+			height: 40px;
+			padding: 36px 20px 51px 0;
+		}
+
+		&__copyright {
+			text-align: right;
 		}
 	}
 }

@@ -1,0 +1,130 @@
+.post {
+	margin-bottom: 20px;
+
+	& img {
+		width: 100%;
+	}
+
+	&__container {
+		.container-fluid();
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__comment {
+		margin-top: -8px;
+		padding: 20px;
+		color: @font-darkblue;
+		background-color: @bg-lightgrey;
+	}
+
+	&__author {
+		font-weight: bold;
+	}
+
+	&__time {
+		text-transform: uppercase;
+	}
+
+	&__likes {
+		position: relative;
+		margin-left: 20px;
+		color: @font-pink;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 5px;
+			left: -20px;
+			width: 13px;
+			height: 13px;
+			background-image: url('../img/icon-heart.svg');
+			background-repeat: no-repeat;
+		}
+	}
+
+	&--of-the-day {
+		position: relative;
+
+		&::after {
+			content: 'Панорама дня';
+			position: absolute;
+			top: 0;
+			right: 6.25%;
+			padding: 6px 20px;
+			color: @font-white;
+			font-size: 12px;
+			font-weight: bold;
+			text-transform: uppercase;
+			background-color: @bg-pink;
+		}
+
+		& .post__comment {
+			box-sizing: border-box;
+			.container-fluid();
+			margin-top: -8px;
+		}
+	}
+}
+
+@media @tablet-widths {
+	.post {
+		display: flex;
+		flex-basis: 48%;
+		flex-direction: column;
+
+		&__container {
+			margin-top: 50px;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		&__comment {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			font-size: 16px;
+		}
+
+		&__text {
+			flex-grow: 1;
+		}
+
+		&--of-the-day {
+
+			&::after {
+				top: 60px;
+			}
+
+			& .post__comment {
+				margin-top: -9px;
+			}
+		}
+	}
+}
+
+@media @desktop-widths {
+	.post {
+		flex-basis: 32%;
+
+		&--of-the-day {
+			max-width: 1200px;
+			margin: 0 auto 20px auto;
+
+			&::after {
+				top: 60px;
+			}
+
+			& .post__comment {
+				margin-top: -9px;
+			}
+		}
+	}
+}

@@ -1,0 +1,319 @@
+.photo-editor {
+	.container-fluid();
+	text-align: center;
+
+	&__paragraph {
+		margin: 0 20px;
+		font-size: 14px;
+		line-height: 30px;
+		color: @font-darkblue;
+	}
+
+	&__container {
+		margin-top: 50px;
+		padding: 20px;
+		background-color: @bg-lightgrey;
+	}
+
+	&__photo {
+
+		& img {
+			width: 100%;
+		}
+	}
+
+	&__filter {
+
+		& input[type="radio"] {
+			display: none;
+		}
+	}
+
+	&__toggles {
+		width: 95%;
+		margin-top: 50px;
+		text-align: center;
+
+		& label {
+			display: inline-block;
+			vertical-align: middle;
+			width: 48px;
+			height: 48px;
+			margin: 0 10px;
+			cursor: pointer;
+		}
+
+		& .filter-icon {
+			fill: grey;
+
+			&:hover {
+				fill: @bg-pink;
+			}
+		}
+	}
+
+	&__controls {
+
+		& input[type=range] {
+			display: none;
+			-webkit-appearance: none;
+			margin: 20px 0;
+			width: 100%;
+		}
+
+		& input[type=range]:focus {
+			outline: none;
+		}
+
+		& input[type=range]::-webkit-slider-runnable-track {
+			width: 100%;
+			height: 2px;
+			cursor: pointer;
+			animate: 0.2s;
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+			background: #283645;
+			border: 0px solid #000101;
+		}
+
+		& input[type=range]::-webkit-slider-thumb {
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+			border: 2px solid #d22856;
+			height: 10px;
+			width: 10px;
+			border-radius: 7px;
+			background: #f2f2f2;
+			cursor: pointer;
+			-webkit-appearance: none;
+			margin-top: -3.6px;
+		}
+
+		& input[type=range]:focus::-webkit-slider-runnable-track {
+			background: #283645;
+		}
+
+		& input[type=range]::-moz-range-track {
+			width: 100%;
+			height: 2px;
+			cursor: pointer;
+			animate: 0.2s;
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+			background: #283645;
+			border-radius: 25px;
+			border: 0px solid #000101;
+		}
+		
+		& input[type=range]::-moz-range-thumb {
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+			border: 2px solid #d22856;
+			height: 10px;
+			width: 10px;
+			border-radius: 7px;
+			background: #f2f2f2;
+			cursor: pointer;
+		}
+
+		& input[type=range]::-ms-track {
+			width: 100%;
+			height: 2px;
+			cursor: pointer;
+			animate: 0.2s;
+			background: transparent;
+			border-color: transparent;
+			border-width: 39px 0;
+			color: transparent;
+		}
+
+		& input[type=range]::-ms-fill-lower {
+			background: #283645;
+			border: 0px solid #000101;
+			border-radius: 50px;
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+		}
+
+		& input[type=range]::-ms-fill-upper {
+			background: #283645;
+			border: 0px solid #000101;
+			border-radius: 50px;
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+		}
+
+		& input[type=range]::-ms-thumb {
+			box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+			border: 2px solid #d22856;
+			height: 10px;
+			width: 10px;
+			border-radius: 7px;
+			background: #f2f2f2;
+			cursor: pointer;
+		}
+
+		& input[type=range]:focus::-ms-fill-lower {
+			background: #283645;
+		}
+
+		& input[type=range]:focus::-ms-fill-upper {
+			background: #283645;
+		}
+	}
+
+	&__serve,
+	&__cancel {
+		display: block;
+		width: 85%;
+		margin: 20px auto;
+		padding: 16px;
+		font-size: 18px;
+		line-height: 18px;
+		font-weight: bold;
+		color: @font-pink;
+		text-decoration: none;
+		background-color: transparent;
+		border: 3px solid @bg-pink;
+		border-radius: 28px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: @bg-pink;
+			color: @font-white;
+		}
+
+		&:disabled {
+			color: #dddfe0;
+			border-color: #dddfe0;
+
+			&:hover {
+				color: #dddfe0;
+				background-color: transparent;
+			}
+		}
+
+		&:active {
+			color: @font-lightpink;
+		}
+	}
+}
+
+#filter-1:checked ~ .photo-editor__toggles label[for=filter-1] .filter-icon,
+#filter-2:checked ~ .photo-editor__toggles label[for=filter-2] .filter-icon,
+#filter-3:checked ~ .photo-editor__toggles label[for=filter-3] .filter-icon {
+	fill: @bg-pink;
+}
+
+#filter-1:checked ~ .photo-editor__controls .photo-editor__crop {
+	display: block;
+	margin: 40px 0 70px 0;
+}
+
+#filter-2:checked ~ .photo-editor__controls .photo-editor__fill {
+	display: block;
+	margin: 40px 0 70px 0;
+}
+
+#filter-3:checked ~ .photo-editor__controls .photo-editor__contrast {
+	display: block;
+	margin: 40px 0 70px 0;
+}
+
+@media @tablet-widths {
+	.photo-editor {
+
+		&__container {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__photo,
+		&__filter {
+			flex-basis: 48%;
+		}
+
+		&__filter {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+		}
+
+		&__toggles {
+			display: none;
+		}
+
+		&__controls {
+			flex-basis: 70%;
+			padding-left: 50px;
+		}
+
+		&__serve,
+		&__cancel {
+			width: 85%;
+		}
+	}
+
+	#filter-1 ~ .photo-editor__controls input[type=range].photo-editor__crop {
+		display: block;
+		position: relative;
+		margin: 40px 0 85px 0;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			top: -12px;
+			left: -40px;
+			width: 25px;
+			height: 25px;
+			background-image: url('../img/icon-editor-crop.svg');
+			background-repeat: no-repeat;
+			background-size: 25px 25px;
+			background-position: left center;
+		}
+	}
+
+	#filter-2 ~ .photo-editor__controls input[type=range].photo-editor__fill {
+		display: block;
+		position: relative;
+		margin: 0 0 80px 0;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			top: -12px;
+			left: -40px;
+			width: 25px;
+			height: 25px;
+			background-image: url('../img/icon-editor-fill.svg');
+			background-repeat: no-repeat;
+			background-size: 25px 25px;
+			background-position: left center;
+		}
+	}
+
+	#filter-3 ~ .photo-editor__controls input[type=range].photo-editor__contrast {
+		display: block;
+		position: relative;
+		margin: 0 0 70px 0;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: -12px;
+			left: -40px;
+			width: 25px;
+			height: 25px;
+			background-image: url('../img/icon-editor-contrast.svg');
+			background-repeat: no-repeat;
+			background-size: 25px 25px;
+			background-position: left center;
+		}
+		
+	}
+
+}
+
+@media @desktop-widths {
+	.photo-editor {
+
+		&__serve,
+		&__cancel {
+			width: 48%;
+		}
+	}
+}
