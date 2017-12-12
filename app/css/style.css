@@ -442,16 +442,25 @@ img {
 .page-header__semi-opacity-bar {
   background-color: rgba(0, 0, 0, 0.3);
 }
-.page-header__heading {
-  padding: 30px 50px;
-}
 .page-header__heading h1 {
+  width: 87.5%;
+  max-width: 610px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px;
   text-align: center;
   font-size: 24px;
   line-height: 38px;
   font-weight: 300;
 }
-@media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 700px) {
+  .page-header__heading h1 {
+    width: 89%;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+}
+@media (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .page-header {
     background-image: url("../img/iphone-hand-mobile@2x.png"), url("../img/bg-back-mobile@2x.jpg");
   }
@@ -475,17 +484,13 @@ img {
     background-repeat: no-repeat;
     background-position: center top;
   }
-  .page-header__heading {
-    padding: 50px 70px;
-  }
   .page-header__heading h1 {
-    text-align: center;
-    font-size: 50px;
-    line-height: 75px;
-    font-weight: 300;
+    padding: 80px;
+    font-size: 46px;
+    line-height: 72px;
   }
 }
-@media (min-width: 700px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 700px) and (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .page-header {
     background-image: url("../img/iphone-hand-tablet@2x.png"), url("../img/bg-back-tablet@2x.jpg");
   }
@@ -510,7 +515,7 @@ img {
     background-position: center top;
   }
 }
-@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 1200px) and (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .page-header {
     background-image: url("../img/iphone-hand-desktop@2x.png"), url("../img/bg-back-desktop@2x.jpg");
   }
@@ -847,9 +852,13 @@ img {
   font-weight: 300;
 }
 .content__paragraph {
+  margin: 0;
   padding: 0 40px;
   color: #283645;
   font-size: 14px;
+}
+.content__paragraph--hidden {
+  display: none;
 }
 @media (min-width: 700px) {
   .content__container {
@@ -857,6 +866,9 @@ img {
   }
   .content__paragraph {
     font-size: 18px;
+  }
+  .content__paragraph--hidden {
+    display: block;
   }
 }
 @media (min-width: 1200px) {
@@ -878,8 +890,7 @@ img {
   width: 87.5%;
   max-width: 610px;
   margin: 0 auto;
-  padding-top: 60px;
-  padding-bottom: 290px;
+  padding: 60px 0 290px 0;
   text-align: center;
   background-image: url("../img/iphone-screen-mobile@1x.png");
   background-size: 157px auto;
@@ -893,7 +904,7 @@ img {
     margin: 0 auto;
   }
 }
-@media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .advantages__container {
     background-image: url("../img/iphone-screen-mobile@2x.png");
   }
@@ -926,7 +937,7 @@ img {
     margin-left: auto;
   }
 }
-@media (min-width: 700px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 700px) and (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .advantages__container {
     background-image: url("../img/iphone-screen-3-tablet@2x.png");
   }
@@ -969,17 +980,17 @@ img {
     font-weight: bold;
   }
 }
-@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 1200px) and (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .advantages__item:nth-child(1) {
     background-image: url("../img/iphone-screen-1-desktop@2x.png");
   }
 }
-@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 1200px) and (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .advantages__item:nth-child(2) {
     background-image: url("../img/iphone-screen-2-desktop@2x.png");
   }
 }
-@media (min-width: 1200px) and (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+@media (min-width: 1200px) and (min-resolution: 144dpi) and (min-resolution: 1.5dppx) {
   .advantages__item:nth-child(3) {
     background-image: url("../img/iphone-screen-3-desktop@2x.png");
   }
@@ -1804,8 +1815,11 @@ img {
 .photo-editor__toggles .filter-icon:hover {
   fill: #d22856;
 }
-.photo-editor__controls input[type=range] {
+.photo-editor__controls label {
   display: none;
+  margin: 40px 0 70px 0;
+}
+.photo-editor__controls input[type=range] {
   -webkit-appearance: none;
   margin: 20px 0;
   width: 100%;
@@ -1899,7 +1913,6 @@ img {
   margin: 20px auto;
   padding: 16px;
   font-size: 18px;
-  line-height: 18px;
   font-weight: bold;
   color: #d22856;
   text-decoration: none;
@@ -1934,15 +1947,12 @@ img {
 }
 #filter-1:checked ~ .photo-editor__controls .photo-editor__crop {
   display: block;
-  margin: 40px 0 70px 0;
 }
 #filter-2:checked ~ .photo-editor__controls .photo-editor__fill {
   display: block;
-  margin: 40px 0 70px 0;
 }
 #filter-3:checked ~ .photo-editor__controls .photo-editor__contrast {
   display: block;
-  margin: 40px 0 70px 0;
 }
 @media (min-width: 700px) {
   .photo-editor__container {
@@ -1962,69 +1972,445 @@ img {
     display: none;
   }
   .photo-editor__controls {
-    flex-basis: 70%;
+    flex-basis: 95%;
     padding-left: 50px;
   }
-  .photo-editor__serve,
-  .photo-editor__cancel {
-    width: 85%;
-  }
-  #filter-1 ~ .photo-editor__controls input[type=range].photo-editor__crop {
+  .photo-editor__controls label {
     display: block;
     position: relative;
-    margin: 40px 0 85px 0;
+    margin: 0;
+    width: 100%;
+    height: 100px;
   }
-  #filter-1 ~ .photo-editor__controls input[type=range].photo-editor__crop::after {
+  .photo-editor__controls label::before {
     content: "";
     position: absolute;
-    top: -12px;
+    top: 10px;
     left: -40px;
     width: 25px;
     height: 25px;
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: left center;
+  }
+  .photo-editor__crop::before {
     background-image: url('../img/icon-editor-crop.svg');
-    background-repeat: no-repeat;
-    background-size: 25px 25px;
-    background-position: left center;
   }
-  #filter-2 ~ .photo-editor__controls input[type=range].photo-editor__fill {
-    display: block;
-    position: relative;
-    margin: 0 0 80px 0;
-  }
-  #filter-2 ~ .photo-editor__controls input[type=range].photo-editor__fill::after {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: -40px;
-    width: 25px;
-    height: 25px;
+  .photo-editor__fill::before {
     background-image: url('../img/icon-editor-fill.svg');
-    background-repeat: no-repeat;
-    background-size: 25px 25px;
-    background-position: left center;
   }
-  #filter-3 ~ .photo-editor__controls input[type=range].photo-editor__contrast {
-    display: block;
-    position: relative;
-    margin: 0 0 70px 0;
-  }
-  #filter-3 ~ .photo-editor__controls input[type=range].photo-editor__contrast::after {
-    content: "";
-    position: absolute;
-    top: -12px;
-    left: -40px;
-    width: 25px;
-    height: 25px;
+  .photo-editor__contrast::before {
     background-image: url('../img/icon-editor-contrast.svg');
-    background-repeat: no-repeat;
-    background-size: 25px 25px;
-    background-position: left center;
+  }
+}
+.competition-form {
+  position: relative;
+}
+.competition-form__container {
+  width: 87.5%;
+  max-width: 610px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (min-width: 700px) {
+  .competition-form__container {
+    width: 89%;
+    max-width: 940px;
+    margin: 0 auto;
+  }
+}
+.competition-form input[type=text],
+.competition-form input[type=tel],
+.competition-form input[type=email],
+.competition-form textarea {
+  padding: 10px;
+  border: 2px solid #f2f2f2;
+  border-radius: 3px;
+}
+.competition-form input[type=text]:hover,
+.competition-form input[type=tel]:hover,
+.competition-form input[type=email]:hover,
+.competition-form textarea:hover {
+  border-color: #283645;
+}
+.competition-form input[type=text]:focus,
+.competition-form input[type=tel]:focus,
+.competition-form input[type=email]:focus,
+.competition-form textarea:focus {
+  border-color: #d22856;
+  outline: none;
+}
+.competition-form__person {
+  flex-basis: 100%;
+  padding-bottom: 0;
+  border: none;
+}
+.competition-form__person legend {
+  display: none;
+}
+.competition-form__person label {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.competition-form__person label span {
+  flex-basis: 100%;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #d22856;
+  text-transform: uppercase;
+}
+.competition-form__person label input {
+  flex-basis: 100%;
+  margin-bottom: 25px;
+}
+.competition-form__achievements {
+  flex-basis: 100%;
+  margin: -10px 0 0 0;
+  padding: 0 5px;
+  background-color: #f2f2f2;
+  border: none;
+}
+.competition-form__achievements legend {
+  padding-top: 60px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #d22856;
+  text-align: center;
+}
+.competition-form__achievements input {
+  display: none;
+}
+.competition-form__select {
+  display: block;
+  position: relative;
+  padding: 4px 0;
+  margin: 20px 0;
+}
+.competition-form__select:hover .competition-form__checkbox-indicator {
+  border-color: #283645;
+}
+.competition-form__checkbox-indicator {
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+  border: 2px solid #e5e5e5;
+  border-radius: 3px;
+}
+.competition-form__checkbox-name {
+  padding-left: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #283645;
+}
+.competition-form input[type=checkbox]:checked + .competition-form__checkbox-indicator::before,
+.competition-form input[type=checkbox]:checked + .competition-form__checkbox-indicator::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background-color: #d22856;
+}
+.competition-form input[type=checkbox]:checked + .competition-form__checkbox-indicator::before {
+  left: 10px;
+  bottom: 5px;
+  height: 15px;
+  transform: rotate(-45deg);
+}
+.competition-form input[type=checkbox]:checked + .competition-form__checkbox-indicator::after {
+  left: 25px;
+  bottom: 4px;
+  height: 30px;
+  transform: rotate(45deg);
+}
+.competition-form__contacts {
+  flex-basis: 100%;
+  padding: 20px 0 0 0;
+  border: none;
+}
+.competition-form__contacts legend {
+  display: none;
+}
+.competition-form__contacts label {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.competition-form__contacts label span {
+  flex-basis: 100%;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #d22856;
+  text-transform: uppercase;
+}
+.competition-form__contacts label input {
+  flex-basis: 100%;
+  margin-bottom: 25px;
+}
+.competition-form__contacts label input[type=tel] {
+  background-image: url("../img/icon-phone.svg");
+  background-repeat: no-repeat;
+  background-position: 98% center;
+}
+.competition-form__contacts label input[type=email] {
+  background-image: url("../img/icon-mail.svg");
+  background-repeat: no-repeat;
+  background-position: 98% center;
+}
+.competition-form__app {
+  flex-basis: 100%;
+  margin-top: -10px;
+  padding: 0 5px;
+  background-color: #f2f2f2;
+  border: none;
+}
+.competition-form__app legend {
+  margin-bottom: 20px;
+  padding-top: 60px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #d22856;
+  text-align: center;
+}
+.competition-form__app input {
+  display: none;
+}
+.competition-form__select:hover .competition-form__radio-indicator {
+  border-color: #283645;
+}
+.competition-form__radio-indicator {
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+  border: 2px solid #e5e5e5;
+  border-radius: 50%;
+}
+.competition-form__radio-name {
+  padding-left: 50px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #283645;
+}
+.competition-form input[type=radio]:checked + .competition-form__radio-indicator::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  background-color: #d22856;
+  border-radius: 50%;
+}
+.competition-form__emotions {
+  flex-basis: 100%;
+  margin-top: -30px;
+  padding: 0 5px;
+  border: none;
+}
+.competition-form__emotions legend {
+  margin-bottom: 20px;
+  padding-top: 60px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #d22856;
+  text-align: center;
+}
+.competition-form__emotions textarea {
+  width: 90%;
+  min-height: 80px;
+  resize: vertical;
+  margin-bottom: 30px;
+}
+.competition-form__btn {
+  flex-basis: 100%;
+  padding: 10px 33px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Open Sans", "Arial", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #2aab6d;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.competition-form__btn:hover {
+  background-color: #1c9b5e;
+}
+.competition-form__btn:active {
+  color: #7dbd99;
+}
+.competition-form__btn:disabled {
+  background-color: #f2f2f2;
+}
+.competition-form__paragraph {
+  flex-basis: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.competition-form__paragraph span {
+  color: #d22856;
+}
+.competition-form__notification-ok,
+.competition-form__notification-error {
+  display: none;
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #fff;
+}
+.competition-form__notification-ok b,
+.competition-form__notification-error b {
+  display: block;
+  padding-top: 50px;
+}
+.competition-form__notification-ok button,
+.competition-form__notification-error button {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 50px;
+  padding: 10px 33px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Open Sans", "Arial", sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: #2aab6d;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.competition-form__notification-ok button:hover,
+.competition-form__notification-error button:hover {
+  background-color: #1c9b5e;
+}
+.competition-form__notification-ok button:active,
+.competition-form__notification-error button:active {
+  color: #7dbd99;
+}
+.competition-form__notification-ok--show,
+.competition-form__notification-error--show {
+  display: block;
+  z-index: 15;
+}
+@media (min-width: 700px) {
+  .competition-form__person {
+    order: 1;
+  }
+  .competition-form__achievements {
+    order: 4;
+    margin-top: 30px;
+    padding: 0 20px;
+    background-color: transparent;
+    border: 2px solid #e5e5e5;
+    border-radius: 5px;
+  }
+  .competition-form__achievements legend {
+    margin-bottom: 0;
+    padding: 0 20px;
+  }
+  .competition-form__contacts {
+    order: 3;
+    margin-top: 30px;
+    padding: 0 20px;
+    border: 2px solid #e5e5e5;
+    border-radius: 5px;
+  }
+  .competition-form__contacts legend {
+    display: block;
+    margin-bottom: 0;
+    padding: 0 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #d22856;
+    text-align: center;
+  }
+  .competition-form__app {
+    order: 2;
+    margin-top: 30px;
+    padding: 0 20px;
+    background-color: transparent;
+    border: 2px solid #e5e5e5;
+    border-radius: 5px;
+  }
+  .competition-form__app legend {
+    margin-bottom: 0;
+    padding: 0 20px;
+  }
+  .competition-form__emotions {
+    order: 5;
+    margin: 30px 0;
+    padding: 0 20px;
+    border: 2px solid #e5e5e5;
+    border-radius: 5px;
+  }
+  .competition-form__emotions legend {
+    margin-bottom: 0;
+    padding: 0 20px;
+  }
+  .competition-form__emotions textarea {
+    width: 95%;
+    margin-top: 20px;
+  }
+  .competition-form__btn {
+    order: 6;
+    flex-basis: 48%;
+  }
+  .competition-form__paragraph {
+    order: 7;
+    flex-basis: 48%;
+    text-align: right;
   }
 }
 @media (min-width: 1200px) {
-  .photo-editor__serve,
-  .photo-editor__cancel {
-    width: 48%;
+  .competition-form__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .competition-form__person {
+    flex-basis: 45%;
+  }
+  .competition-form__achievements {
+    text-align: center;
+  }
+  .competition-form__achievements label {
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+  }
+  .competition-form__app {
+    flex-basis: 45%;
+    margin: 0;
   }
 }
-/* animations */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.modal-overlay--show {
+  display: block;
+  z-index: 10;
+}
