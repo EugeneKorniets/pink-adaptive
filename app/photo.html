@@ -30,7 +30,7 @@
 				<ul class="main-nav__list">
 					<li class="main-nav__item"><a href="index.html">Главная</a></li>
 					<li class="main-nav__item main-nav__item--active"><a>Фотографии</a></li>
-					<li class="main-nav__item"><a href="#">Конкурс</a></li>
+					<li class="main-nav__item"><a href="form.html">Конкурс</a></li>
 					<li class="main-nav__item"><a href="https://htmlacademy.ru/">HTML Academy</a></li>
 				</ul>
 			</nav>
@@ -189,7 +189,6 @@
 					<input type="radio" id="filter-1" name="toggle" checked>
 					<input type="radio" id="filter-2" name="toggle">
 					<input type="radio" id="filter-3" name="toggle">
-
 					<div class="photo-editor__toggles">
 						<label for="filter-1">
 							<svg class="filter-icon" version="1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path fill="none" d="M0 0h48v48H0V0z"/><path d="M34 30h4V14c0-2.21-1.79-4-4-4H18v4h16v16zm-20 4V2h-4v8H2v4h8v20c0 2.21 1.79 4 4 4h20v8h4v-8h8v-4H14z"/></svg>
@@ -203,9 +202,15 @@
 					</div>
 
 					<div class="photo-editor__controls">
-						<input class="photo-editor__crop" type="range">
-						<input class="photo-editor__fill" type="range">
-						<input class="photo-editor__contrast" type="range">
+						<label class="photo-editor__crop">
+							<input type="range" min="0" max="100" step="1" value="20">
+						</label>
+						<label class="photo-editor__fill">
+							<input type="range" min="0" max="100" step="1" value="50">
+						</label>
+						<label class="photo-editor__contrast">
+							<input type="range" min="0" max="100" step="1" value="80">
+						</label>
 					</div>
 
 					<button class="photo-editor__serve">Запостить</button>

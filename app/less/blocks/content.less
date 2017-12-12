@@ -24,9 +24,14 @@
 	}
 
 	&__paragraph {
+		margin: 0;
 		padding: 0 40px;
 		color: @font-darkblue;
 		font-size: 14px;
+
+		&--hidden {
+			display: none;
+		}
 	}
 }
 
@@ -39,6 +44,10 @@
 
 		&__paragraph {
 			font-size: 18px;
+
+			&--hidden {
+				display: block;
+			}
 		}
 	}
 }

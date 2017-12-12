@@ -75,3 +75,29 @@ function feedbackSliderNext() {
   }
 }
 /* feedback-slider scroll controls handler   end */
+
+
+/* handler for sending form submissions   start */
+var competitionForm = document.querySelector('.competition-form__container');
+var notificationFormOK = document.querySelector('.competition-form__notification-ok');
+var notificationFormError = document.querySelector('.competition-form__notification-error');
+var btnCloseOK =  document.querySelector('.competition-form__notification-ok button');
+var btnCloseError =  document.querySelector('.competition-form__notification-error button');
+var modalOverlay = document.querySelector('.modal-overlay');
+
+
+if (competitionForm != null) {
+  competitionForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    modalOverlay.classList.add('modal-overlay--show');
+    notificationFormOK.classList.add('competition-form__notification-ok--show');
+  });
+
+  btnCloseOK.addEventListener('click', function(event) {
+    event.preventDefault();
+    modalOverlay.classList.remove('modal-overlay--show');
+    notificationFormOK.classList.remove('competition-form__notification-ok--show');
+  })
+}
+
+/* handler for sending form submissions   end */
