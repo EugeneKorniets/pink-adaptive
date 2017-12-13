@@ -62,7 +62,8 @@
 			}
 		}
 
-		&--opened {
+		&--opened,
+		&--nojs {
 			background-color: @bg-darkblue;
 			
 			& .main-nav__toggle {
@@ -78,6 +79,7 @@
 					height: 30px;
 
 					background-color: @bg-white;
+					box-shadow: none;
 				}
 
 				&::before {
@@ -91,6 +93,7 @@
 				&:hover::before,
 				&:hover::after {
 					background-color: @bg-pink;
+					box-shadow: none;
 				}
 
 				&:active::before,
@@ -100,6 +103,7 @@
 			}
 
 			& .main-nav__item {
+				.visually-shown;
 				display: block;
 				color: @font-white;
 
@@ -149,7 +153,8 @@
 			}
 		}
 
-		&--opened .main-nav__toggle {
+		&--opened .main-nav__toggle,
+		&--nojs .main-nav__toggle {
 
 			&::before,
 			&::after {
