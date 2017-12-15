@@ -101,3 +101,37 @@ if (competitionForm != null) {
 }
 
 /* handler for sending form submissions   end */
+
+
+// yandex map start
+ymaps.ready(init);
+var myMap,
+    myPlacemark;
+
+function init(){
+  myMap = new ymaps.Map("map", {
+    center: [55.75729150100909,37.612833961195896],
+    zoom: 14,
+    controls: []
+  });
+
+  myPlacemark = new ymaps.Placemark(
+    [55.75729150100909,37.612833961195896],
+    { 
+      hintContent: '',
+      balloonContent: ''
+    },
+    {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/icon-map-marker.svg',
+      iconImageSize: [40, 40],
+      iconImageOffset: [0, 0]
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+
+    myMap.behaviors
+    .disable(['rightMouseButtonMagnifier', 'scrollZoom']);
+};
+
+// yandex map end
