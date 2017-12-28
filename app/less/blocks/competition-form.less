@@ -13,9 +13,11 @@
 	& input[type=tel],
 	& input[type=email],
 	& textarea {
+		display: block;
 		padding: 10px;
 		border: 2px solid @bg-lightgrey;
 		border-radius: 3px;
+		transition: 0.3s;
 
 		&:hover {
 			border-color: @bg-darkblue;
@@ -83,6 +85,7 @@
 		position: relative;
 		padding: 4px 0;
 		margin: 20px 0;
+		cursor: pointer;
 
 		&:hover .competition-form__checkbox-indicator {
 			border-color: @bg-darkblue;
@@ -98,6 +101,7 @@
 		background-color: @bg-white;
 		border: 2px solid #e5e5e5;
 		border-radius: 3px;
+		transition: 0.3s;
 	}
 
 	&__checkbox-name {
@@ -212,6 +216,7 @@
 		background-color: @bg-white;
 		border: 2px solid #e5e5e5;
 		border-radius: 50%;
+		transition: 0.3s;
 	}
 
 	&__radio-name {
@@ -256,6 +261,7 @@
 			min-height: 80px;
 			resize: vertical;
 			margin-bottom: 30px;
+			overflow-x: hidden;
 		}
 	}
 
