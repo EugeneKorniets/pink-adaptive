@@ -183,28 +183,27 @@
 			line-height: 18px;
 		}
 
-		&__prev {
-			display: block;
-			position: absolute;
-			top: center;
-			left: 0;
-			width: 22px;
-			height: 42px;
-			background-image: url("../img/icon-review-arrow-left.svg");
-			background-repeat: no-repeat;
-			cursor: pointer;
-		}
-
+		&__prev,
 		&__next {
 			display: block;
 			position: absolute;
 			top: center;
-			right: 0;
 			width: 22px;
 			height: 42px;
-			background-image: url("../img/icon-review-arrow-right.svg");
-			background-repeat: no-repeat;
+			padding: 30px;
 			cursor: pointer;
+
+			&:hover svg {
+				fill: @bg-darkblue;
+			}
+		}
+
+		&__prev {
+			left: 0;
+		}
+
+		&__next {
+			right: 0;
 		}
 
 		&__controls {
