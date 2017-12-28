@@ -42,7 +42,6 @@ gulp.task('style', function() {
 			browsers:['ie >= 11', 'last 4 version']
 		})
 		]))
-	.pipe(gulp.dest('app/css'))
 	.pipe(gulp.dest('build/css'))
 	.pipe(minify())
 	.pipe(rename('style.min.css'))
