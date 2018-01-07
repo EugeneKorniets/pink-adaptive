@@ -74,7 +74,117 @@ function feedbackSliderNext() {
     }
   }
 }
+
+// обработчики событий для свайпов влево и вправо для feedback-slider
+var initialPoint;
+var finalPoint;
+var feedbackSlider = document.querySelector('.feedback__list');
+
+if (feedbackSlider != null) {
+  feedbackSlider.addEventListener('touchstart', function(event) {
+    initialPoint=event.changedTouches[0];
+  }, false);
+
+  feedbackSlider.addEventListener('touchend', function(event) {
+    var sensitivy = 40;
+    finalPoint=event.changedTouches[0];
+    var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+    if (xAbs > sensitivy) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (finalPoint.pageX < initialPoint.pageX) {
+        swipeFeedbackNext();
+      }
+      else {
+        swipeFeedbackPrev()
+      }
+    };
+  }, false);
+};
+
+
+function swipeFeedbackPrev() {
+  if (feedbackSliderInputs[0].checked == true) {
+    return;
+  } else {
+    feedbackSliderPrev();
+  }
+}
+
+function swipeFeedbackNext() {
+  if (feedbackSliderInputs[feedbackSliderInputs.length - 1].checked == true) {
+    return;
+  } else {
+    feedbackSliderNext();
+  }
+}
 /* feedback-slider scroll controls handler   end */
+
+
+/* price-slider scroll controls handler start */
+var priceSlider = document.querySelector('.price__list');
+var priceSliderInputs = document.getElementsByClassName('price__control');
+
+// обработчики событий для свайпов влево и вправо для price-slider
+if (priceSlider != null) {
+  priceSlider.addEventListener('touchstart', function(event) {
+    initialPoint=event.changedTouches[0];
+  }, false);
+
+  priceSlider.addEventListener('touchend', function(event) {
+    var sensitivy = 40;
+    finalPoint=event.changedTouches[0];
+    var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
+    if (xAbs > sensitivy) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (finalPoint.pageX < initialPoint.pageX) {
+        swipePriceNext();
+      }
+      else {
+        swipePricePrev()
+      }
+    };
+  }, false);
+};
+
+
+function swipePricePrev() {
+  if (priceSliderInputs[0].checked == true) {
+    return;
+  } else {
+    for (var i = priceSliderInputs.length - 1; i >= 0; i--) {
+      if (priceSliderInputs[i].checked == true) {
+        if(i == 0) {
+          priceSliderInputs[priceSliderInputs.length - 1].checked = true;
+          return;
+        } else {
+          priceSliderInputs[i-1].checked = true;
+          return;
+        }
+      }
+    }
+  }
+}
+
+function swipePriceNext() {
+  if (priceSliderInputs[priceSliderInputs.length - 1].checked == true) {
+    return;
+  } else {
+    for (var i = 0; i <= priceSliderInputs.length - 1; i++) {
+      if (priceSliderInputs[i].checked == true) {
+        if(i == priceSliderInputs.length - 1) {
+          priceSliderInputs[0].checked = true;
+          return;
+        } else {
+          priceSliderInputs[i+1].checked = true;
+          return;
+        }
+      }
+    }
+  }
+}
+/* price-slider scroll controls handler end */
 
 
 /* handler for sending form submissions   start */

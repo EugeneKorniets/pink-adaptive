@@ -108,25 +108,26 @@
 	}
 }
 
-#price-control-1:checked ~ .price__controls label[for="price-control-1"],
-#price-control-2:checked ~ .price__controls label[for="price-control-2"],
-#price-control-3:checked ~ .price__controls label[for="price-control-3"] {
-	background-color: transparent;
-	border-color: @bg-darkblue;
-}
+@media @mob-widths-only {
+	#price-control-1:checked ~ .price__controls label[for="price-control-1"],
+	#price-control-2:checked ~ .price__controls label[for="price-control-2"],
+	#price-control-3:checked ~ .price__controls label[for="price-control-3"] {
+		background-color: transparent;
+		border-color: @bg-darkblue;
+	}
 
-#price-control-1:checked ~ .price__list {
-	transform: translateX(280px);
-}
+	#price-control-1:checked ~ .price__list {
+		transform: translateX(280px);
+	}
 
-#price-control-2:checked ~ .price__list {
-	transform: translateX(0);
-}
+	#price-control-2:checked ~ .price__list {
+		transform: translateX(0);
+	}
 
-#price-control-3:checked ~ .price__list {
-	transform: translateX(-280px);
+	#price-control-3:checked ~ .price__list {
+		transform: translateX(-280px);
+	}
 }
-
 
 @media @tablet-widths {
 	.price {
