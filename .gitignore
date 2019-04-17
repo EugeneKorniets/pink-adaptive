@@ -58,3 +58,5 @@ typings/
 .env
 
 app/css/style.css
+/.idea
+package-lock.json
